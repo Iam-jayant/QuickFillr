@@ -9,13 +9,28 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             color: #593afe;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         form {
@@ -35,34 +50,106 @@
             border-radius: 5px;
         }
 
+        input {
+            background-color: #f9f9f9;
+        }
+
         button {
             background-color: #593afe;
             color: white;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         button:hover {
             background-color: #1d71f8;
         }
+        
+    /* Notification styles */
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #593afe;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-size: 1em;
+        z-index: 1000;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .notification.error {
+        background-color: #e74c3c;
+    }
+
+    .notification-icon {
+        font-size: 1.5em;
+    }
+
+    .notification-message {
+        flex: 1;
+    }
+
+    .notification.fade-out {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
     </style>
 </head>
 <body>
-    <h1>Settings</h1>
-    <form id="userForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Enter your name" required>
+    <div class="container">
+        <h1>Settings</h1>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" placeholder="Enter your address">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
 
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number">
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address">
 
-        <button type="submit">Save</button>
-    </form>
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="Enter your city">
+
+            <label for="resumeInput">Upload Resume:</label>
+            <input type="file" id="resumeInput" accept=".txt">
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
     <script src="settings.js"></script>
 </body>
 </html>
+<!-- simpler version -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickFillr Settings</title>
+</head>
+<body>
+  <h1>User Settings</h1>
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Name" required /><br/>
+    <input type="email" id="email" placeholder="Email" required /><br/>
+    <input type="tel" id="phone" placeholder="Phone" /><br/>
+    <input type="text" id="address1" placeholder="Address Line 1" /><br/>
+    <input type="text" id="address2" placeholder="Address Line 2" /><br/>
+    <input type="text" id="city" placeholder="City" /><br/>
+    <button type="submit">Save</button>
+  </form>
+  <script src="settings.js"></script>
+</body>
+</html> -->

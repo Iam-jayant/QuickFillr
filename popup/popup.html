@@ -83,20 +83,38 @@
 </head>
 <body>
     <header>
-        <button class="dark-mode-toggle" id="settingsButton" title="Settings">
+        <button class="dark-mode-toggle" id="settings" title="Settings">
             <i class="fas fa-cog"></i>
         </button>
         <div class="logo">QuickFillr</div>
-        <button class="dark-mode-toggle" id="darkModeButton" title="Toggle Dark Mode">
-            <i class="fas fa-moon"></i>
-        </button>
+        <label>
+            <input type="checkbox" id="darkModeToggle"> Dark Mode
+        </label>
     </header>
     <div class="content">
         <h2>Welcome to QuickFillr</h2>
         <p>Use the buttons below to manage your form-filling preferences:</p>
-        <button onclick="fillForm()">Fill Form</button>
-        <button onclick="clearForm()">Clear Form</button>
+        <button id="fillNow">Autofill Now</button>
     </div>
     <script src="popup.js"></script>
 </body>
 </html>
+
+
+<!-- Simpler version -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickFillr</title>
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <h1>QuickFillr</h1>
+  <button id="fillNow">Autofill Now</button>
+  <button id="settings">Settings</button>
+  <label><input type="checkbox" id="darkModeToggle"> Dark Mode</label>
+  <script src="popup.js"></script>
+</body>
+</html> -->
