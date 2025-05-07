@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full height */
+            height: 100vh;
             box-sizing: border-box;
         }
 
@@ -25,6 +25,12 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
         }
 
         h1 {
@@ -41,6 +47,7 @@
 
         label {
             font-weight: bold;
+            text-align: left;
         }
 
         input, button {
@@ -64,47 +71,48 @@
         button:hover {
             background-color: #1d71f8;
         }
-        
-    /* Notification styles */
-    .notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background-color: #593afe;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        font-size: 1em;
-        z-index: 1000;
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
 
-    .notification.error {
-        background-color: #e74c3c;
-    }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #593afe;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+            z-index: 1000;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
 
-    .notification-icon {
-        font-size: 1.5em;
-    }
+        .notification.error {
+            background-color: #e74c3c;
+        }
 
-    .notification-message {
-        flex: 1;
-    }
+        .notification-icon {
+            font-size: 1.5em;
+        }
 
-    .notification.fade-out {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
+        .notification-message {
+            flex: 1;
+        }
+
+        .notification.fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Logo -->
+        <img src="../Icons/root.png" alt="QuickFillr Logo" class="logo">
         <h1>Settings</h1>
         <form id="userForm">
             <label for="name">Name:</label>
@@ -122,34 +130,18 @@
             <label for="city">City:</label>
             <input type="text" id="city" placeholder="Enter your city">
 
-            <label for="resumeInput">Upload Resume:</label>
-            <input type="file" id="resumeInput" accept=".txt">
+            <label for="resumeInput">Upload Resume (PDF/DOCX):</label>
+            <input type="file" id="resumeInput" accept=".pdf,.docx">
 
+            <button type="button" id="parseResumeBtn">Extract & Fill from Resume</button>
             <button type="submit">Save</button>
         </form>
     </div>
+
+    <!-- JavaScript dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+    <script src="../Scripts/parser.js"></script>
     <script src="settings.js"></script>
 </body>
 </html>
-<!-- simpler version -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuickFillr Settings</title>
-</head>
-<body>
-  <h1>User Settings</h1>
-  <form id="userForm">
-    <input type="text" id="name" placeholder="Name" required /><br/>
-    <input type="email" id="email" placeholder="Email" required /><br/>
-    <input type="tel" id="phone" placeholder="Phone" /><br/>
-    <input type="text" id="address1" placeholder="Address Line 1" /><br/>
-    <input type="text" id="address2" placeholder="Address Line 2" /><br/>
-    <input type="text" id="city" placeholder="City" /><br/>
-    <button type="submit">Save</button>
-  </form>
-  <script src="settings.js"></script>
-</body>
-</html> -->

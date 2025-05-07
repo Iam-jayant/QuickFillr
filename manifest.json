@@ -16,7 +16,7 @@
       "128": "Icons/root.png"
   },
   "background": {
-      "service_worker": "background.js"
+      "service_worker": "Scripts/background.js"
   },
   "content_scripts": [{
       "matches": ["<all_urls>"],
