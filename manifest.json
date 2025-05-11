@@ -1,25 +1,22 @@
-
-  
 {
   "manifest_version": 3,
-  "name": "QuickFillr",
+  "name": "Form Autofiller",
   "version": "1.0",
-  "description": "Autofill forms quickly with stored or extracted resume data.",
+  "description": "Autofill forms with saved or fake info. Toggle dark mode. Manage info in settings.",
   "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "action": {
-      "default_popup": "popup/popup.html",
-      "default_icon": {
-          "128": "Icons/root.png"
-      }
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "128": "icon.png"
+    }
   },
   "icons": {
-      "128": "Icons/root.png"
+    "128": "icon.png"
   },
   "background": {
-      "service_worker": "Scripts/background.js"
-  },
-  "content_scripts": [{
-      "matches": ["<all_urls>"],
-      "js": ["Scripts/content.js"]
-  }]
+    "service_worker": "background.js"
+  }
 }
